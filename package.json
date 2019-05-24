@@ -1,0 +1,23 @@
+{
+  "name": "deepcrawler",
+  "version": "1.0.0",
+  "description": "deepcrawler developed by Pratik Lunagaria",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://superhead@bitbucket.org/superhead/deepcrawler.git"
+  },
+  "keywords": [
+    "Deepcrawler",
+    "apify"
+  ],
+  "author": "Pratik Lunagaria",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/superhead/deepcrawler#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}

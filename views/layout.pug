@@ -1,0 +1,308 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  title Marketing - UIkit 3 KickOff
+  link(rel='icon' href='img/favicon.ico')
+  // CSS FILES
+  link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css')
+  link(rel='stylesheet' type='text/css' href='css/marketing.css')
+// TOP
+.top-wrap.uk-position-relative.uk-light.uk-background-secondary
+  // NAV
+  .nav(data-uk-sticky='cls-active: uk-background-secondary uk-box-shadow-medium; top: 100vh; animation: uk-animation-slide-top')
+    .uk-container
+      nav.uk-navbar.uk-navbar-container.uk-navbar-transparent(data-uk-navbar='')
+        .uk-navbar-left
+          .uk-navbar-item.uk-padding-remove-horizontal
+            a.uk-logo(title='Logo' href='')
+              img(src='img/marketing-logo.svg' alt='Logo')
+        .uk-navbar-right
+          ul.uk-navbar-nav(class='uk-visible@s')
+            li.uk-active(class='uk-visible@m')
+              a(href='' data-uk-icon='home')
+            li
+              a(href='') Features
+            li
+              a(href='#' data-uk-icon='chevron-down') Products
+              .uk-navbar-dropdown
+                ul.uk-nav.uk-navbar-dropdown-nav
+                  li
+                    a(href='#') Big Data
+                  li
+                    a(href='#') Marketing
+                  li
+                    a(href='#') Analytics
+                  li
+                    a(href='#') AI Lab
+            li
+              a(href='') Testimonials
+          a.uk-navbar-toggle.uk-navbar-item(class='uk-hidden@s' data-uk-toggle='' data-uk-navbar-toggle-icon='' href='#offcanvas-nav')
+  // /NAV
+  .uk-cover-container.uk-light.uk-flex.uk-flex-middle.top-wrap-height
+    // TOP CONTAINER
+    .uk-container.uk-flex-auto.top-container.uk-position-relative.uk-margin-medium-top(data-uk-parallax='y: 0,50; easing:0; opacity:0.2')
+      .(class='uk-width-1-2@s' data-uk-scrollspy='cls: uk-animation-slide-right-medium; target: > *; delay: 150')
+        h6.uk-text-primary.uk-margin-small-bottom RESEARCH
+        h1.uk-margin-remove-top Innovation in your hands.
+        p.subtitle-text(class='uk-visible@s')
+          | Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          | quis nostrud exercitation ullamco
+        a.uk-button.uk-button-primary.uk-border-pill(href='#' title='Learn More' data-uk-scrollspy-class='uk-animation-fade') LEARN MORE
+    // /TOP CONTAINER
+    // TOP IMAGE
+    img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-srcset='https://picsum.photos/640/700/?image=816 640w,\
+    https://picsum.photos/960/700/?image=816 960w,\
+    https://picsum.photos/1200/900/?image=816 1200w,\
+    https://picsum.photos/2000/1000/?image=816 2000w' data-sizes='100vw' data-src='https://picsum.photos/1200/900/?image=816' alt='' data-uk-cover='' data-uk-img='' data-uk-parallax='opacity: 1,0.1; easing:0')
+    // /TOP IMAGE
+  .uk-position-bottom-center.uk-position-medium.uk-position-z-index.uk-text-center
+    a(href='#content' data-uk-scroll='duration: 500' data-uk-icon='icon: arrow-down; ratio: 2')
+// /TOP
+section#content.uk-section.uk-section-default
+  .uk-container
+    .uk-section.uk-section-small.uk-padding-remove-top
+      ul.uk-subnav.uk-subnav-pill.uk-flex.uk-flex-center(data-uk-switcher='connect: .uk-switcher; animation: uk-animation-fade')
+        li
+          a.uk-border-pill(href='#') Discover
+        li
+          a.uk-border-pill(href='#') Benefits
+        li
+          a.uk-border-pill(href='#') Features
+    ul.uk-switcher.uk-margin
+      li
+        .uk-grid.uk-flex-middle(class='uk-child-width-1-2@l' data-uk-grid='' data-uk-scrollspy='target: > div; cls: uk-animation-slide-left-medium')
+          div
+            img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-1.svg' alt='' data-uk-img='')
+          div(data-uk-scrollspy-class='uk-animation-slide-right-medium')
+            h6.uk-text-primary MAIN REASONS
+            h2.uk-margin-small-top Take decisions with real time data based on users interaction.
+            p.subtitle-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              | quis nostrud exercitation.
+            .uk-grid(class='uk-child-width-1-2@s' data-uk-grid='')
+              div
+                h4 Great stuff
+                p
+                  | Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. 
+                  a(href='') Learn more.
+              div
+                h4 Data analysis
+                p
+                  | Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. 
+                  a(href='') Learn more.
+      li
+        .uk-grid.uk-flex-middle(class='uk-child-width-1-2@l' data-uk-grid='' data-uk-scrollspy='target: > div; cls: uk-animation-slide-left-medium')
+          div
+            img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-8.svg' alt='' data-uk-img='')
+          div(data-uk-scrollspy-class='uk-animation-slide-right-medium')
+            h6.uk-text-primary MAIN REASONS
+            h2.uk-margin-small-top Take decisions with real time data based on users interaction.
+            p.subtitle-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              | quis nostrud exercitation.
+            .uk-grid(class='uk-child-width-1-2@s' data-uk-grid='')
+              div
+                h4 Great stuff
+                p
+                  | Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. 
+                  a(href='') Learn more.
+              div
+                h4 Data analysis
+                p
+                  | Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. 
+                  a(href='') Learn more.
+      li
+        .uk-grid.uk-flex-middle(class='uk-child-width-1-2@l' data-uk-grid='' data-uk-scrollspy='target: > div; cls: uk-animation-slide-left-medium')
+          div
+            img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-9.svg' alt='' data-uk-img='')
+          div(data-uk-scrollspy-class='uk-animation-slide-right-medium')
+            h6.uk-text-primary MAIN REASONS
+            h2.uk-margin-small-top Take decisions with real time data based on users interaction.
+            p.subtitle-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              | quis nostrud exercitation.
+            .uk-grid(class='uk-child-width-1-2@s' data-uk-grid='')
+              div
+                h4 Great stuff
+                p
+                  | Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. 
+                  a(href='') Learn more.
+              div
+                h4 Data analysis
+                p
+                  | Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. 
+                  a(href='') Learn more.
+section.uk-section.uk-section-secondary.uk-section-large
+  .uk-container
+    .uk-grid.uk-flex-middle(class='uk-child-width-1-2@l')
+      div
+        h6 SIMPLIFY THINGS
+        h2.uk-margin-small-top.uk-h1 Manage all your data from one place only.
+        p.subtitle-text
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          | tempor incididunt ut labore et dolore magna aliqua.
+        a.uk-button.uk-button-primary.uk-border-pill(href='#' data-uk-icon='arrow-right') LEARN MORE
+      div(data-uk-scrollspy='cls: uk-animation-fade')
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-2.svg' data-uk-img='' alt='Image')
+section.uk-cover-container.overlay-wrap
+  img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-srcset='https://picsum.photos/640/650/?image=770 640w,\
+  https://picsum.photos/960/650/?image=770 960w,\
+  https://picsum.photos/1200/650/?image=770 1200w,\
+  https://picsum.photos/2000/650/?image=770 2000w' data-sizes='100vw' data-src='https://picsum.photos/1200/650/?image=770' alt='' data-uk-cover='' data-uk-img='')
+  .uk-container.uk-position-z-index.uk-position-relative.uk-section.uk-section-xlarge.uk-light
+    .uk-grid.uk-flex-right
+      .(class='uk-width-2-5@m' data-uk-parallax='y: 50,-50; easing: 0; media:@l')
+        h6 TESTIMONIALS
+        .uk-position-relative.uk-visible-toggle.uk-light(data-uk-slider='easing: cubic-bezier(.16,.75,.47,1)')
+          ul.uk-slider-items.uk-child-width-1-1
+            li
+              div(data-uk-slider-parallax='opacity: 0.2,1,0.2')
+                h2.uk-margin-small-top
+                  | &quot;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur&quot;
+                p.uk-text-meta Lorena Smith, founder of Some Cool Startup
+            li
+              div(data-uk-slider-parallax='opacity: 0.2,1,0.2')
+                h2.uk-margin-small-top
+                  | &quot;Aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur&quot;
+                p.uk-text-meta Lorena Smith, founder of Some Cool Startup
+            li
+              div(data-uk-slider-parallax='opacity: 0.2,1,0.2')
+                h2.uk-margin-small-top
+                  | &quot;Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur&quot;
+                p.uk-text-meta Lorena Smith, founder of Some Cool Startup
+          ul.uk-slider-nav.uk-dotnav.uk-margin-top
+            li
+// BOTTOM
+section.uk-section.uk-section-default
+  .uk-container.uk-container-xsmall.uk-text-center.uk-section.uk-padding-remove-top
+    h5.uk-text-primary ANALYTICS
+    h2.uk-margin-remove.uk-h1 Know the behavior of your potential customers.
+  .uk-container
+    .uk-grid.uk-grid-large(class='uk-child-width-1-3@m' data-uk-grid='' data-uk-scrollspy='target: > div; delay: 150; cls: uk-animation-slide-bottom-medium')
+      .uk-text-center
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-3.svg' data-uk-img='' alt='Image')
+        h4.uk-margin-small-bottom.uk-margin-top.uk-margin-remove-adjacent Lorem ipsum dolor sit amet
+        p 24/7 support. We&rsquo;re always here for you no matter what time of day.
+      .uk-text-center
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-4.svg' data-uk-img='' alt='Image')
+        h4.uk-margin-small-bottom.uk-margin-top.uk-margin-remove-adjacent Lorem ipsum dolor sit amet
+        p 24/7 support. We&rsquo;re always here for you no matter what time of day.
+      .uk-text-center
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-5.svg' data-uk-img='' alt='Image')
+        h4.uk-margin-small-bottom.uk-margin-top.uk-margin-remove-adjacent Lorem ipsum dolor sit amet
+        p 24/7 support. We&rsquo;re always here for you no matter what time of day.
+      .uk-text-center
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-5.svg' data-uk-img='' alt='Image')
+        h4.uk-margin-small-bottom.uk-margin-top.uk-margin-remove-adjacent Lorem ipsum dolor sit amet
+        p 24/7 support. We&rsquo;re always here for you no matter what time of day.
+      .uk-text-center
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-4.svg' data-uk-img='' alt='Image')
+        h4.uk-margin-small-bottom.uk-margin-top.uk-margin-remove-adjacent Lorem ipsum dolor sit amet
+        p 24/7 support. We&rsquo;re always here for you no matter what time of day.
+      .uk-text-center
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/marketing-3.svg' data-uk-img='' alt='Image')
+        h4.uk-margin-small-bottom.uk-margin-top.uk-margin-remove-adjacent Lorem ipsum dolor sit amet
+        p 24/7 support. We&rsquo;re always here for you no matter what time of day.
+// BOTTOM
+// LOGOS
+.uk-section.uk-section-small.uk-section-muted
+  .uk-container.uk-container-small
+    .uk-grid.uk-child-width-1-4.logos-grid(class='uk-child-width-expand@m' data-uk-grid='' data-uk-scrollspy='cls: uk-animation-scale-down; target: > div > img; delay: 100')
+      div
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/logo-1.svg' data-uk-img='' alt='Image')
+      div
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/logo-2.svg' data-uk-img='' alt='Image')
+      div
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/logo-3.svg' data-uk-img='' alt='Image')
+      div
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/logo-6.svg' data-uk-img='' alt='Image')
+      div
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/logo-7.svg' data-uk-img='' alt='Image')
+      div
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/logo-8.svg' data-uk-img='' alt='Image')
+      div
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/logo-4.svg' data-uk-img='' alt='Image')
+      div
+        img(src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='img/logo-5.svg' data-uk-img='' alt='Image')
+// /LOGOS
+// FOOTER
+footer.uk-section.uk-section-secondary.uk-padding-remove-bottom
+  .uk-container
+    .uk-grid.uk-grid-large(data-uk-grid='')
+      .(class='uk-width-1-2@m')
+        h5 OUR COMPANY
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud cillum dolore eu fugiat nulla contact to: 
+          a(href='#' title='') info@company.com
+        div
+          a.uk-icon-button(href='' data-uk-icon='twitter')
+          a.uk-icon-button(href='' data-uk-icon='facebook')
+          a.uk-icon-button(href='' data-uk-icon='instagram')
+      .(class='uk-width-1-6@m')
+        h5 PRODUCTS
+        ul.uk-list
+          li Big Data
+          li Marketing
+          li Analytics
+          li AI Lab
+      .(class='uk-width-1-6@m')
+        h5 OUR COMPANY
+        ul.uk-list
+          li Team
+          li Work
+          li Culture
+          li Contact Us
+      .(class='uk-width-1-6@m')
+        h5 OUR OFFICES
+        ul.uk-list
+          li London
+          li Chicago
+          li Dubai
+          li Brussels
+  .uk-text-center.uk-padding.uk-padding-remove-horizontal
+    span.uk-text-small.uk-text-muted
+      | &copy; 2019 Marketing Layout - 
+      a(href='https://github.com/zzseba78/Kick-Off') Created by KickOff
+      |  | Built with 
+      a(href='http://getuikit.com' title='Visit UIkit 3 site' target='_blank' data-uk-tooltip='')
+        span(data-uk-icon='uikit')
+// /FOOTER
+// OFFCANVAS
+#offcanvas-nav(data-uk-offcanvas='flip: true; overlay: false')
+  .uk-offcanvas-bar.uk-offcanvas-bar-animation.uk-offcanvas-slide
+    button.uk-offcanvas-close.uk-close.uk-icon(type='button' data-uk-close='')
+    ul.uk-nav.uk-nav-default
+      li.uk-active
+        a(href='#') Active
+      li.uk-parent
+        a(href='#') Parent
+        ul.uk-nav-sub
+          li
+            a(href='#') Sub item
+          li
+            a(href='#') Sub item
+      li.uk-nav-header Header
+      li
+        a(href='#js-options')
+          span.uk-margin-small-right.uk-icon(data-uk-icon='icon: table')
+          |  Item
+      li
+        a(href='#')
+          span.uk-margin-small-right.uk-icon(data-uk-icon='icon: thumbnails')
+          |  Item
+      li.uk-nav-divider
+      li
+        a(href='#')
+          span.uk-margin-small-right.uk-icon(data-uk-icon='icon: trash')
+          |  Item
+    h3 Title
+    p
+      | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+// /OFFCANVAS
+// JS FILES
+script(src='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit-icons.min.js')

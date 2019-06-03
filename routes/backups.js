@@ -4,7 +4,7 @@ var router = express.Router();
 // type: GET
 // path: '/'
 router.get('/', function(req,res,next){
-    res.render('home');
+    res.send('respond with resource2');
 });
 
 module.exports = router;

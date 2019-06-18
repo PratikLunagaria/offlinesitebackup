@@ -1,11 +1,2 @@
 /node_modules
 node_modules
-
-!*/zipped
-!*/downloads
-!*/zipped/todo.txt
-!*/downloads/todo.txt
-/trials/
-/trials/*
-/zipped/*
-/downloads/*

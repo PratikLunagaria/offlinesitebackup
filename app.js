@@ -12,7 +12,6 @@ var dlRouter = require('./routes/dl');
 
 // Middlewares
 app.use(logger('combined'));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'zipped')));

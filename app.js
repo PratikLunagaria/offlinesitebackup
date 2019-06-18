@@ -14,8 +14,10 @@ var dlRouter = require('./routes/dl');
 app.use(logger('combined'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'zipped')));
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'zipped')));
+app.use(express.static('public'));
+app.use(express.static('zipped'));
 
 // Create `ExpressHandlebars` instance with a default layout.
 var hbs = exphbs.create({

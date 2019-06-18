@@ -1,9 +1,8 @@
 var express = require('express');
 var app = express();
 var helpers = require('./lib/helpers');
-var createError = require('http-errors');
+var createError = require('http-errors');s
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var exphbs = require('express-handlebars');
 
@@ -13,7 +12,6 @@ var dlRouter = require('./routes/dl');
 
 // Middlewares
 app.use(logger('combined'));
-app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));

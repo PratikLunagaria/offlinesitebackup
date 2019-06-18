@@ -19,26 +19,24 @@ $(document).ready(function(){
             console.log('prevented');
         } else {
           e.preventDefault();
-          $.ajax({
-            type: 'POST',
-            url: '/site_req',
-            data: {'siteurl': $('#site_url').val()},
-            success: 
-            function(res) {
-              //console.log(res);
-              if (res['data'] == 'successful') {
-                console.log(res);
+          var submitval = $('#site_url').val();
+          if(submitval.length >= 7){
+            $('#modal-center').addClass( "uk-flex uk-open" );
+            $.ajax({
+              type: 'POST',
+              url: '/site_req',
+              cache: false,
+              data: {'siteurl': submitval},
+              success: 
+                function(res) {
+                  console.log(res);
+                  $('#final-dl-btn').attr("onclick", `window.location.href='${res}'`);
+                  $('#dl-link').html(`If the download hasn't automatically started yet click on : <a href=${res}>${res}</a>`);
+                  $('#modal-center').removeClass( "uk-flex uk-open" );
+                  $('#modal-final-dl').addClass("uk-flex uk-open" );
                 }
-              else {
-                console.log(res);
-              } 
-            }
-        });
-    }
-})    
-    
+            });
+          }
+        }
+    })    
 });
-    // show Progress bar
-    // receive the JSON response
-    // Error handling function
-    // change url on backup generation

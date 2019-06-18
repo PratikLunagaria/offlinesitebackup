@@ -1,0 +1,4 @@
+if (self.CavalryLogger) { CavalryLogger.start_js(["Ee52w"]); }
+
+__d("classWithMixins",[],(function(a,b,c,d,e,f){function a(a,b){var c=function(){a.apply(this,arguments)};c.prototype=Object.assign(Object.create(a.prototype),b.prototype);return c}e.exports=a}),null);
+__d("BigPipePageletRootStatusLogger",["BanzaiODS"],(function(a,b,c,d,e,f){"use strict";__p&&__p();var g=!1;a={init:function(a){__p&&__p();if(g===!0)return;g=!0;b("BanzaiODS").setEntitySample("bigpipe.pagelet_root_element",a);function c(a,c){b("BanzaiODS").bumpEntityKey("bigpipe.pagelet_root_element",c+"."+a)}a=window.__logBigPipePageletRootStatus;window.__logBigPipePageletRootStatus=c;if(a!=null&&typeof a.getLogs==="function"){a=a.getLogs();a.forEach(function(a){var b=a[0];a=a[1];return c(b,a)})}}};e.exports=a}),null);

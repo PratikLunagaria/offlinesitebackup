@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Matchy">
+    <meta name="author" content="Sebastiaan Speck">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="OcXm6Mxz2zJuyS8rhAIIjmhI5RLbZfndqewVBjVi">
+
+    <title>Matchy</title>
+
+    <!-- Scripts -->
+    <script src="js/app.js" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/all.css" crossorigin="anonymous">
+
+    <script src="js/jquery.min_1.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Styles -->
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/style_1.css" rel="stylesheet">
+
+
+<script type="text/javascript">
+
+window.onload = function() {
+  //**** CHILD ****//
+  // Connect to the parent page.
+  //window.seamless.connect();
+
+  var parentReady = false;
+
+  var parent = window.seamless.connect({
+    allowStyleInjection: true
+  });
+
+  // Send a message
+  // Polling for the sake of my intern tests
+  var interval = setInterval(function() {
+    if(document.readyState === 'complete') {
+      if (parentReady){
+console.log("CLEAR INTERVAL");
+        clearInterval(interval);
+      }else{
+      parent.send({
+        data: {mydata: "I'm ready!!! Sent from child to parent..." },
+        //myparam: "I'm ready!!! Sent from child to parent...",
+        success: function(data) {
+console.log("CHILD (MATCHY) RECEIVED CONFIRMATION OF MESSAGE RECEIVED");
+          parentReady = true;
+        }
+      });
+      } // End parentReady
+    }
+  }, 500);
+
+  // Receive a message
+  parent.receive(function(data, event) {
+    //console.log(data);
+
+    switch(data.type) {
+      case 'setContent':
+        if (data.hasOwnProperty('header')) {
+          document.getElementsByTagName('h1')[0].innerHTML = data.header;
+        }
+        if (data.hasOwnProperty('image')) {
+          document.getElementById('image').setAttribute('src', data.image);
+        }
+        if (data.hasOwnProperty('javascript')){
+          eval(data.javascript);
+        }
+        break;
+      case 'getContent':
+        return {
+          header: document.getElementsByTagName('h1')[0].textContent,
+          image: document.getElementById('image').getAttribute('src')
+        };
+        break;
+      default:
+        if (data.hasOwnProperty('mydata')){
+          console.log(data.mydata);
+	  //console.log(data.myparam);
+        }
+        break;
+    }
+  });
+
+};
+
+</script>
+
+    <style>
+            </style>
+</head>
+<body>
+
+   <header>
+
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark p-1">
+        <!--<nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top">-->
+            <a class="navbar-brand" href="http://matchy.hostless.org">
+                <i class="fas fa-futbol fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Matchy
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFixtures" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fixtures</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownFixtures">
+                            <a class="dropdown-item" href="http://matchy.hostless.org/fixtures?day=yesterday">Yesterday</a>
+                            <a class="dropdown-item" href="http://matchy.hostless.org/fixtures?day=tomorrow">Tomorrow</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLivescores" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Livescores</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownLivescores">
+                            <a class="dropdown-item" href="http://matchy.hostless.org/livescores/now">Livescores -  now <span class="badge badge-danger">0</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="http://matchy.hostless.org/livescores/today">Livescores - today</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLeagues" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Leagues</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownLeagues">
+                            <a class="dropdown-item" href="http://matchy.hostless.org/leagues">All leagues</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFavorites" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Favorites</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownFavorites">
+                            <a class="dropdown-item" href="http://matchy.hostless.org/favorite_teams">My favorite teams</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="http://matchy.hostless.org/favorite_leagues">My favorite leagues</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main role="main" class="container-fluid main-container">
+            <div class="container">
+        <div id="heading" style="text-align: center">
+            <table width="100%">
+                <tbody><tr>
+                    <td><img src="images/69.png" style="max-height: 200px; max-width: 200px" alt="team_logo"></td>
+                </tr>
+                <tr>
+                                        <td style="vertical-align: top"><h3><i class="far fa-star fa-fw"></i>&nbsp;&nbsp;Cardiff City</h3></td>
+                </tr>
+                                    <tr>
+                        <td><p>Coach: Neil Warnock</p></td>
+                    </tr>
+                            </tbody></table>
+        </div>
+
+        
+        <ul class="nav nav-tabs" id="nav_tabs" role="tablist">
+                            <li class="nav-item">
+                    <a class="nav-link active" id="last_fixtures-tab" data-toggle="tab" href="#last_fixtures" role="tab" aria-controls="last_fixtures" aria-selected="true">Last 10 fixtures</a>
+                </li>
+                                </ul>
+
+        
+        <div class="tab-content" id="tab_content">
+            <div class="tab-pane fade show active" id="last_fixtures" role="tabpanel" aria-labelledby="last_fixtures-tab">
+                                                                                                                                    <table class="table table-striped table-light table-sm" style="width:100%">
+                                                                                                            <tbody><tr>
+                                            <td style="font-weight: bold; text-align: center; background-color: #bdbdbd;" colspan="5">
+                                                <a href="http://matchy.hostless.org/leagues/8">Premier League</a> -
+                                                                                                Matchday 38</td>
+                                        </tr>
+                                                                                                    </tbody><thead style="visibility: collapse">
+                                    <tr>
+                                        <th scope="col" width="20%"></th>
+                                        <th scope="col" width="26.25%"></th>
+                                        <th scope="col" width="7.5%"></th>
+                                        <th scope="col" width="26.25%"></th>
+                                        <th scope="col" width="20%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row">2019-05-12 16:00</td>
+                                    
+                                    <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/14" class="lost-team">Manchester United&nbsp;&nbsp;<img src="images/14.png" alt="team_logo"></a></td>
+                                    
+                                    <td scope="row" style="text-align: center">0 - 2</td>
+                                    
+                                    <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/69" class="won-team"><img src="images/69_1.png" alt="team_logo">&nbsp;&nbsp;Cardiff City</a></td>
+                                    <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333137"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                                </tr>
+                                                                                                                                                                                                                    <tr>
+                                        <td style="font-weight: bold; text-align: center; background-color: #d3d3d3;" colspan="5">
+                                                                                        Matchday 37</td>
+                                    </tr>
+                                                                                        <tr>
+                                <td scope="row">2019-05-04 18:30</td>
+                                
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/69" class="lost-team">Cardiff City&nbsp;&nbsp;<img src="images/69_1.png" alt="team_logo"></a></td>
+                                
+                                <td scope="row" style="text-align: center">2 - 3</td>
+                                
+                                <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/51" class="won-team"><img src="images/51.png" alt="team_logo">&nbsp;&nbsp;Crystal Palace</a></td>
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333123"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                            </tr>
+                                                                                                                                                                                                                    <tr>
+                                        <td style="font-weight: bold; text-align: center; background-color: #d3d3d3;" colspan="5">
+                                                                                        Matchday 36</td>
+                                    </tr>
+                                                                                        <tr>
+                                <td scope="row">2019-04-27 16:00</td>
+                                
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/11" class="won-team">Fulham&nbsp;&nbsp;<img src="images/11.png" alt="team_logo"></a></td>
+                                
+                                <td scope="row" style="text-align: center">1 - 0</td>
+                                
+                                <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/69" class="lost-team"><img src="images/69_1.png" alt="team_logo">&nbsp;&nbsp;Cardiff City</a></td>
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333114"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                            </tr>
+                                                                                                                                                                                                                    <tr>
+                                        <td style="font-weight: bold; text-align: center; background-color: #d3d3d3;" colspan="5">
+                                                                                        Matchday 35</td>
+                                    </tr>
+                                                                                        <tr>
+                                <td scope="row">2019-04-21 17:00</td>
+                                
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/69" class="lost-team">Cardiff City&nbsp;&nbsp;<img src="images/69_1.png" alt="team_logo"></a></td>
+                                
+                                <td scope="row" style="text-align: center">0 - 2</td>
+                                
+                                <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/8" class="won-team"><img src="images/8.png" alt="team_logo">&nbsp;&nbsp;Liverpool</a></td>
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333103"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                            </tr>
+                                                                                                                                                                                                                    <tr>
+                                        <td style="font-weight: bold; text-align: center; background-color: #d3d3d3;" colspan="5">
+                                                                                        Matchday 31</td>
+                                    </tr>
+                                                                                        <tr>
+                                <td scope="row">2019-04-16 20:45</td>
+                                
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/78" class="lost-team">Brighton &amp; Hove Albion&nbsp;&nbsp;<img src="images/78.png" alt="team_logo"></a></td>
+                                
+                                <td scope="row" style="text-align: center">0 - 2</td>
+                                
+                                <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/69" class="won-team"><img src="images/69_1.png" alt="team_logo">&nbsp;&nbsp;Cardiff City</a></td>
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333062"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                            </tr>
+                                                                                                                                                                                                                    <tr>
+                                        <td style="font-weight: bold; text-align: center; background-color: #d3d3d3;" colspan="5">
+                                                                                        Matchday 34</td>
+                                    </tr>
+                                                                                        <tr>
+                                <td scope="row">2019-04-13 16:00</td>
+                                
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/27" class="won-team">Burnley&nbsp;&nbsp;<img src="images/27.png" alt="team_logo"></a></td>
+                                
+                                <td scope="row" style="text-align: center">2 - 0</td>
+                                
+                                <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/69" class="lost-team"><img src="images/69_1.png" alt="team_logo">&nbsp;&nbsp;Cardiff City</a></td>
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333092"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                            </tr>
+                                                                                                                                                                                                                    <tr>
+                                        <td style="font-weight: bold; text-align: center; background-color: #d3d3d3;" colspan="5">
+                                                                                        Matchday 33</td>
+                                    </tr>
+                                                                                        <tr>
+                                <td scope="row">2019-04-03 20:45</td>
+                                
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/9" class="won-team">Manchester City&nbsp;&nbsp;<img src="images/9.png" alt="team_logo"></a></td>
+                                
+                                <td scope="row" style="text-align: center">2 - 0</td>
+                                
+                                <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/69" class="lost-team"><img src="images/69_1.png" alt="team_logo">&nbsp;&nbsp;Cardiff City</a></td>
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333085"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                            </tr>
+                                                                                                                                                                                                                    <tr>
+                                        <td style="font-weight: bold; text-align: center; background-color: #d3d3d3;" colspan="5">
+                                                                                        Matchday 32</td>
+                                    </tr>
+                                                                                        <tr>
+                                <td scope="row">2019-03-31 15:05</td>
+                                
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/69" class="lost-team">Cardiff City&nbsp;&nbsp;<img src="images/69_1.png" alt="team_logo"></a></td>
+                                
+                                <td scope="row" style="text-align: center">1 - 2</td>
+                                
+                                <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/18" class="won-team"><img src="images/18.png" alt="team_logo">&nbsp;&nbsp;Chelsea</a></td>
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333074"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                            </tr>
+                                                                                                                                                                                                                    <tr>
+                                        <td style="font-weight: bold; text-align: center; background-color: #d3d3d3;" colspan="5">
+                                                                                        Matchday 30</td>
+                                    </tr>
+                                                                                        <tr>
+                                <td scope="row">2019-03-09 16:00</td>
+                                
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/69" class="won-team">Cardiff City&nbsp;&nbsp;<img src="images/69_1.png" alt="team_logo"></a></td>
+                                
+                                <td scope="row" style="text-align: center">2 - 0</td>
+                                
+                                <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/1" class="lost-team"><img src="images/1.png" alt="team_logo">&nbsp;&nbsp;West Ham United</a></td>
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333052"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                            </tr>
+                                                                                                                                                                                                                    <tr>
+                                        <td style="font-weight: bold; text-align: center; background-color: #d3d3d3;" colspan="5">
+                                                                                        Matchday 29</td>
+                                    </tr>
+                                                                                        <tr>
+                                <td scope="row">2019-03-02 16:00</td>
+                                
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/teams/29" class="won-team">Wolverhampton Wanderers&nbsp;&nbsp;<img src="images/29.png" alt="team_logo"></a></td>
+                                
+                                <td scope="row" style="text-align: center">2 - 0</td>
+                                
+                                <td scope="row" style="text-align: left"><a href="http://matchy.hostless.org/teams/69" class="lost-team"><img src="images/69_1.png" alt="team_logo">&nbsp;&nbsp;Cardiff City</a></td>
+                                <td scope="row" style="text-align: right"><a href="http://matchy.hostless.org/fixtures/10333050"><i class="fa fa-info-circle" style="margin-right: 10px"></i></a></td>
+                            </tr>
+                                                                                        </tbody>
+                    </table>
+                            </div>
+
+            <div class="tab-pane fade" id="upcoming_fixtures" role="tabpanel" aria-labelledby="upcoming_fixtures-tab">
+                            </div>
+        </div>
+    </div>
+    </main>
+    
+    <footer class="main-footer">
+        <div style="overflow: hidden">
+            <p class="text-muted" style="float: left; margin-left: 2rem;">
+                Matchy - <span class="badge badge-success"> version 2.0.1</span> - <a href="https://github.com/sebastiaanspeck/matchy" class="text-muted" target="_blank">Github Repo&nbsp;&nbsp;<i class="fab fa-github" aria-hidden="true"></i></a>
+            </p>
+            <p class="text-muted" style="float: right; margin-right: 2rem;">
+                Created with&nbsp;&nbsp;<i class="fa fa-code fa-fw"></i>&nbsp;&nbsp;&amp;&nbsp;&nbsp;<i class="fa fa-coffee fa-fw"></i>
+            </p>
+        </div>
+    </footer>
+    <script src="js/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+
+
+</body></html>

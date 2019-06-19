@@ -13,12 +13,11 @@ var dlRouter = require('./routes/dl');
 // Middlewares
 app.use(logger('combined'));
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static('public'));
-app.use(express.static('public/img'));
-app.use(express.static('public/js'));
-app.use(express.static('public/css'));
-app.use(express.static('zipped'));
+app.use('/static', express.static('public'));
 // app.use(express.static('public'));
+// app.use(express.static('public/img'));
+// app.use(express.static('public/js'));
+// app.use(express.static('public/css'));
 // app.use(express.static('zipped'));
 
 // Create `ExpressHandlebars` instance with a default layout.

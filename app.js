@@ -12,8 +12,11 @@ var dlRouter = require('./routes/dl');
 
 // Middlewares
 app.use(logger('combined'));
-// app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/img',express.static(path.join(__dirname, 'public/img')));
+app.use('/js',express.static(path.join(__dirname, 'public/js')));
+app.use('/css',express.static(path.join(__dirname, 'public/css')));
 app.use(express.static(path.join(__dirname, 'zipped')));
 // app.use(express.static('public'));
 // app.use(express.static('zipped'));

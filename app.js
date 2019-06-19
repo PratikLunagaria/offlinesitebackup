@@ -13,7 +13,7 @@ var dlRouter = require('./routes/dl');
 // Middlewares
 app.use(logger('combined'));
 app.use(express.urlencoded({ extended: false }));
-app.use('/static', express.static('public'));
+// app.use('/static', express.static('public'));
 // app.use(express.static('public'));
 // app.use(express.static('public/img'));
 // app.use(express.static('public/js'));
@@ -34,7 +34,7 @@ var hbs = exphbs.create({
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-
+app.use(express.static(path.join(__dirname, 'public')));
 // Routing setup
 app.use('/', indexRouter);
 app.use('/dl', dlRouter);

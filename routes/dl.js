@@ -12,13 +12,13 @@ router.get('/:id', function(req,res,next){
     console.log(fullUrl);
     console.log(dlFile);
     // res.json({'sitepath' : `zipped${dlFile}`})
-    res.download(`zipped/${dlFile}`,dlFile);
+    res.download(`zipped/${dlFile}`,dlFile).catch((err)=> console.log(err));;
     console.log(dlFile);
     var delfolder = dlFile.toString().replace('.zip','')
     setTimeout(
         ()=>{
-            del.sync([`zipped/${dlFile}`]);
-            del.sync([`downloads/${delfolder}`]);
+            del.sync([`zipped/${dlFile}`]).catch((err)=> console.log(err));;
+            del.sync([`downloads/${delfolder}`]).catch((err)=> console.log(err));;
         }
     ,600000);
 });

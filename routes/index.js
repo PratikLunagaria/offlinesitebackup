@@ -23,10 +23,10 @@ router.post('/site_req',async function(req,res,next){
       urls: [qurl],
       directory: dlfolder,
       plugins: [ new PuppeteerPlugin() ]
-    });
+    }).catch((err)=> console.log(err));
 
     async function main() {
-        await zip(dlfolder, zipfolder)
+        await zip(dlfolder, zipfolder).catch((err)=> console.log(err));
         return true;
     }
 

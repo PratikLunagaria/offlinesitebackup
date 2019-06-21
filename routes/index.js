@@ -11,6 +11,25 @@ router.get('/', function(req,res,next){
     res.render('home');
 });
 
+// type: GET
+// path: '/about'
+router.get('/about', function(req,res,next){
+    res.render('about');
+});
+
+// type: GET
+// path: '/how-to'
+router.get('/how-to', function(req,res,next){
+    res.render('how-to');
+});
+
+// type: GET
+// path: '/privacy'
+router.get('/privacy', function(req,res,next){
+    res.render('privacy');
+});
+
+
 // type: POST
 // path: '/site_req'
 router.post('/site_req',async function(req,res,next){

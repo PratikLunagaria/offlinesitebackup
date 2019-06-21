@@ -26,7 +26,7 @@ router.post('/site_req',async function(req,res,next){
     }).catch((err)=> console.log(err));
 
     async function main() {
-        await zip(dlfolder, zipfolder).catch((err)=> console.log(err));
+        await zip(dlfolder, zipfolder);
         return true;
     }
 

@@ -31,7 +31,7 @@ $(document).ready(function(){
                 function(res) {
                   console.log(res);
                   $('#final-dl-btn').attr("onclick", `window.location.href='${res}'`);
-                  $('#dl-icon').attr("onclick", `window.location.href='${res}'`);
+                  $('#dl-icon').attr("href", res);
                   $('#dl-link').html(`If the download hasn't automatically started yet click on : <a href=${res}>${res}</a>`);
                   $('#modal-center').removeClass( "uk-flex uk-open" );
                   $('#modal-final-dl').addClass("uk-flex uk-open" );

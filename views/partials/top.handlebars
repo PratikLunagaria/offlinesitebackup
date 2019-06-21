@@ -1,38 +1,23 @@
 <!-- TOP -->
-<div class="top-wrap uk-position-relative uk-light uk-section uk-background-secondary">
-    {{> nav }}
-    {{!-- //TODO:NAV COMES HERE --}}
+<div class="top-wrap uk-position-relative uk-light uk-background-secondary">
+    {{>nav }}
 
     <div class="uk-cover-container uk-flex uk-flex-middle top-wrap-height">
-        
         <!-- TOP CONTAINER -->
-        <div class="uk-container uk-flex-auto top-container uk-position-relative uk-margin-medium-top" data-uk-parallax="y: 0,50; easing:0; opacity:0.2" style="transform: translateY(0px); opacity: 1;">
-            <div class= "uk-flex">    
-                <div class="uk-width-1-2@s" data-uk-scrollspy="cls: uk-animation-slide-right-medium; target: &gt; *; delay: 150">
-                    <div class="uk-overlay uk-overlay-primary">
-                        <h6 class="uk-text-primary uk-margin-small-bottom uk-scrollspy-inview uk-animation-slide-right-medium" style="">Website downloader</h6>
-                        <h1 class="uk-margin-remove-top uk-scrollspy-inview uk-animation-slide-right-medium" style="">Backup your site</h1>
-                        <p class="subtitle-text uk-visible@s uk-scrollspy-inview uk-animation-slide-right-medium" style="">Enter webpage URL below to create and download backup files</p>
-                        <form id="siteurl_form" type="post" class="uk-form">
-                            <div class="uk-margin">
-                                <input class="uk-input" id="site_url" type="url" placeholder="http://www.example.com">
-                            </div>
-                            <a type="submit" class="uk-button uk-button-primary uk-border-pill uk-scrollspy-inview uk-animation-fade" data-uk-scrollspy-class="uk-animation-fade" id="create_backup">Create backup</a>
-                        </form>
-                    </div>
-                </div>
-                {{!-- <div class="uk-width-1-2@s uk-margin-large-left" >
-                    <img class="uk-align-center" uk-parallax="media: @m"  height="300" width="300" src="img/storage.svg" alt="">
-                </div> --}}
+        <div class="uk-container uk-flex-auto top-container uk-position-relative uk-margin-medium-top" data-uk-parallax="y: 0,50; easing:0; opacity:0.2" >
+            <div class="uk-width-1-2@s uk-overlay uk-overlay-primary" data-uk-scrollspy="cls: uk-animation-slide-right-medium; target: > *; delay: 150">
+                    <h1 class="uk-margin-remove-top">Backup your site</h1>
+                    <p class="subtitle-text uk-visible@s">Enter webpage URL below to create and download backup files</p>
+                    <form id="siteurl_form" type="post" class="uk-form">
+                        <div class="uk-margin">
+                            <input class="uk-input" id="site_url" type="url" placeholder="http://www.example.com">
+                        </div>
+                        <a type="submit" class="uk-button uk-button-primary uk-border-pill" data-uk-scrollspy-class="uk-animation-fade" id="create_backup">Create backup</a>
+                    </form>
             </div>
         </div>
         <!-- /TOP CONTAINER -->
-        
-    </div>
-    {{!-- <div class="uk-position-bottom-center uk-position-medium uk-position-z-index uk-text-center">
-        <a href="https://zzseba78.github.io/Kick-Off/marketing.html#content" data-uk-scroll="duration: 500" data-uk-icon="icon: arrow-down; ratio: 2" class="uk-icon"><svg width="40" height="40" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="arrow-down"><polygon points="10.5,16.08 5.63,10.66 6.37,10 10.5,14.58 14.63,10 15.37,10.66"></polygon><line fill="none" stroke="#000" x1="10.5" y1="4" x2="10.5" y2="15"></line></svg></a>
-    </div> --}}
-    <!-- TOP IMAGE -->
+        <!-- TOP IMAGE -->
         <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="img/bg640-700.png 640w,
         img/bg960-700.png 960w,
         img/bg1200-900.png 1200w,
@@ -41,5 +26,6 @@
         data-src="img/bg1200-900.png" alt="" data-uk-cover data-uk-img data-uk-parallax="opacity: 1,0.1; easing:0"
         >
         <!-- /TOP IMAGE -->
+    </div>
 </div>
 <!-- /TOP -->

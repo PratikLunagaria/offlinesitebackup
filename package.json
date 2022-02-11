@@ -23,7 +23,7 @@
     "debug": "^4.1.1",
     "del": "^4.1.1",
     "express": "^4.17.0",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^5.3.1",
     "http-errors": "^1.7.2",
     "morgan": "^1.9.1",
     "puppeteer": "^1.17.0",
